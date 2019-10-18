@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0
 #
 
-FROM arvados/jobs:latest
+FROM ubuntu:latest
 
 USER root
 
@@ -16,7 +16,7 @@ RUN apt-get update && \
 
 RUN mkdir -p /root/git && \
   cd /root/git && \
-  git clone https://github.com/curoverse/l7g && \
+  git clone https://github.com/lijiayong/l7g && \
   git clone https://github.com/simongog/sdsl-lite && \
   cd /root/git/sdsl-lite && ./install.sh /usr/local && \
 
@@ -97,11 +97,11 @@ RUN mkdir -p /root/git && \
   cp /root/git/l7g/tools/misc/refstream /usr/local/bin && \
 
   cd /root/git/l7g/go/pasta/pasta && \
-  GOPATH=/root/.go go get github.com/curoverse/l7g/go/autoio && \
-  GOPATH=/root/.go go get github.com/curoverse/l7g/go/memz && \
-  GOPATH=/root/.go go get github.com/curoverse/l7g/go/pasta && \
-  GOPATH=/root/.go go get github.com/curoverse/l7g/go/pasta/gvcf && \
-  GOPATH=/root/.go go get github.com/curoverse/l7g/go/sloppyjson && \
+  GOPATH=/root/.go go get github.com/lijiayong/l7g/go/autoio && \
+  GOPATH=/root/.go go get github.com/lijiayong/l7g/go/memz && \
+  GOPATH=/root/.go go get github.com/lijiayong/l7g/go/pasta && \
+  GOPATH=/root/.go go get github.com/lijiayong/l7g/go/pasta/gvcf && \
+  GOPATH=/root/.go go get github.com/lijiayong/l7g/go/sloppyjson && \
   GOPATH=/root/.go go build && \
   cp /root/git/l7g/go/pasta/pasta/pasta /usr/local/bin && \
 

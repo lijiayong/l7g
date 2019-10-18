@@ -11,12 +11,12 @@ import "strings"
 import "time"
 import "bufio"
 
-import "github.com/curoverse/l7g/go/autoio"
+import "github.com/lijiayong/l7g/go/autoio"
 import "github.com/codegangsta/cli"
 
-import "github.com/curoverse/l7g/go/pasta"
+import "github.com/lijiayong/l7g/go/pasta"
 
-import "github.com/curoverse/l7g/go/pasta/gvcf"
+import "github.com/lijiayong/l7g/go/pasta/gvcf"
 
 var VERSION_STR string = "0.2.8"
 var gVerboseFlag bool

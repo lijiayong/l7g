@@ -10,10 +10,10 @@ import "bufio"
 import "bytes"
 import "crypto/md5"
 
-import "github.com/curoverse/l7g/go/pasta"
-import "github.com/curoverse/l7g/go/memz"
+import "github.com/lijiayong/l7g/go/pasta"
+import "github.com/lijiayong/l7g/go/memz"
 
-import "github.com/curoverse/l7g/go/sloppyjson"
+import "github.com/lijiayong/l7g/go/sloppyjson"
 
 type FastJHeader struct {
   TileID string

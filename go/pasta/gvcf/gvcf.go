@@ -10,7 +10,7 @@ import "bytes"
 
 import "time"
 
-import "github.com/curoverse/l7g/go/pasta"
+import "github.com/lijiayong/l7g/go/pasta"
 
 var VERSION string = "0.1.0"
 
