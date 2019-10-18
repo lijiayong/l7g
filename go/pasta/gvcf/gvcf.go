@@ -159,7 +159,7 @@ func (g *GVCFRefVar) _construct_sample_field() string {
 // return reference string, array of alt strings (unique) and the gt string (e.g. "0/0")
 //
 func (g *GVCFRefVar) _ref_alt_gt_fields(refseq string, altseq []string) (string,[]string,string) {
-  local_debug := false
+  local_debug := true
   _allele_n := 0
 
   _refseq := ""
@@ -217,7 +217,7 @@ func (g *GVCFRefVar) _ref_alt_gt_fields(refseq string, altseq []string) (string,
 
 
 func (g *GVCFRefVar) _emit_alt_left_anchor(info GVCFRefVarInfo, out *bufio.Writer) {
-  local_debug := false
+  local_debug := true
 
   a_refseq,a_alt,a_gt_field := g._ref_alt_gt_fields(info.refseq, info.altseq)
   _ = a_alt
@@ -309,7 +309,7 @@ func (g *GVCFRefVar) _emit_ref_left_anchor(info GVCFRefVarInfo, out *bufio.Write
 // to be passed in as is added to the appropriate place.
 //
 func (g *GVCFRefVar) _emit_alt_left_anchor_p(info GVCFRefVarInfo, z byte, out *bufio.Writer, del_start int) {
-  local_debug := false
+  local_debug := true
 
   b_r_seq := info.refseq
   b_refseq,b_alt,b_gt_field := g._ref_alt_gt_fields(b_r_seq, info.altseq)
@@ -365,7 +365,7 @@ func (g *GVCFRefVar) _emit_alt_left_anchor_p(info GVCFRefVarInfo, z byte, out *b
 // right anchor
 //
 func (g *GVCFRefVar) _emit_alt_right_anchor(info GVCFRefVarInfo, z byte, out *bufio.Writer) {
-  local_debug := false
+  local_debug := true
 
   b_r_seq := info.refseq
   b_refseq,b_alt,b_gt_field := g._ref_alt_gt_fields(b_r_seq, info.altseq)
@@ -466,7 +466,7 @@ func (g *GVCFRefVar) _emit_alt_right_anchor(info GVCFRefVarInfo, z byte, out *bu
 //
 //
 func (g *GVCFRefVar) Print(vartype int, ref_start, ref_len int, refseq []byte, altseq [][]byte, out *bufio.Writer) error {
-  local_debug := false
+  local_debug := true
 
   if g.PrintHeader {
     g.Header(out)
@@ -1202,7 +1202,7 @@ func (g *GVCFRefVar) Pasta(gvcf_line string, ref_stream *bufio.Reader, out *bufi
   SAMPLE0_FIELD_POS := 9 ; _ = SAMPLE0_FIELD_POS
 
   //loc_debug := true
-  loc_debug := false
+  loc_debug := true
 
   if loc_debug {
     out.WriteString( fmt.Sprintf("\n\n") )
