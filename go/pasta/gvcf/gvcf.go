@@ -4,7 +4,7 @@ import "fmt"
 import "strconv"
 import "strings"
 import "bufio"
-//import "os"
+import "os"
 import "io"
 import "bytes"
 
@@ -1205,11 +1205,11 @@ func (g *GVCFRefVar) Pasta(gvcf_line string, ref_stream *bufio.Reader, out *bufi
   loc_debug := true
 
   if loc_debug {
-    out.WriteString( fmt.Sprintf("\n\n") )
-    out.WriteString( fmt.Sprintf("## g{ ChromStr %s, RefPos %d, OCount %d}\n",
+    os.Stderr.WriteString( fmt.Sprintf("\n\n") )
+    os.Stderr.WriteString( fmt.Sprintf("## g{ ChromStr %s, RefPos %d, OCount %d}\n",
       g.ChromStr, g.RefPos, g.OCounter) )
-    out.WriteString( fmt.Sprintf("## RefPos %d\n", g.RefPos) )
-    out.WriteString( fmt.Sprintf("## %s\n\n", gvcf_line) )
+    os.Stderr.WriteString( fmt.Sprintf("## RefPos %d\n", g.RefPos) )
+    os.Stderr.WriteString( fmt.Sprintf("## %s\n\n", gvcf_line) )
   }
 
 
@@ -1286,7 +1286,7 @@ func (g *GVCFRefVar) Pasta(gvcf_line string, ref_stream *bufio.Reader, out *bufi
   }
 
   if loc_debug {
-    out.WriteString( fmt.Sprintf("## ALT_FIELD_POS %v\n", line_part[ALT_FIELD_POS]))
+    os.Stderr.WriteString( fmt.Sprintf("## ALT_FIELD_POS %v\n", line_part[ALT_FIELD_POS]))
   }
 
   alt_seq := []string{}
@@ -1309,7 +1309,7 @@ func (g *GVCFRefVar) Pasta(gvcf_line string, ref_stream *bufio.Reader, out *bufi
   if (samp_str == "./.") || (samp_str == ".|.") {
 
     if loc_debug {
-      out.WriteString( fmt.Sprintf("GT == './.' or '.|.', assuming nocall, skipping\n"))
+      os.Stderr.WriteString( fmt.Sprintf("GT == './.' or '.|.', assuming nocall, skipping\n"))
     }
 
     return nil
@@ -1390,14 +1390,14 @@ func (g *GVCFRefVar) Pasta(gvcf_line string, ref_stream *bufio.Reader, out *bufi
   }
 
   if loc_debug {
-    out.WriteString( fmt.Sprintf("## alt_seq %v\n", alt_seq) )
-    out.WriteString( fmt.Sprintf("## ref_anchor %s\n", ref_anchor_base) )
-    out.WriteString( fmt.Sprintf("## gt_samp_idx %v\n", gt_samp_idx) )
-    out.WriteString( fmt.Sprintf("## samp_part %v\n", samp_part) )
-    out.WriteString( fmt.Sprintf("## samp_seq_idx %v\n", samp_seq_idx) )
-    out.WriteString( fmt.Sprintf("## refn %d (_start1ref %d, _end1ref %d)\n", refn, _start1ref, _end1ref) )
+    os.Stderr.WriteString( fmt.Sprintf("## alt_seq %v\n", alt_seq) )
+    os.Stderr.WriteString( fmt.Sprintf("## ref_anchor %s\n", ref_anchor_base) )
+    os.Stderr.WriteString( fmt.Sprintf("## gt_samp_idx %v\n", gt_samp_idx) )
+    os.Stderr.WriteString( fmt.Sprintf("## samp_part %v\n", samp_part) )
+    os.Stderr.WriteString( fmt.Sprintf("## samp_seq_idx %v\n", samp_seq_idx) )
+    os.Stderr.WriteString( fmt.Sprintf("## refn %d (_start1ref %d, _end1ref %d)\n", refn, _start1ref, _end1ref) )
 
-    out.WriteString( fmt.Sprintf("## CP0\n") )
+    os.Stderr.WriteString( fmt.Sprintf("## CP0\n") )
   }
 
 
